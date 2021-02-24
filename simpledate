@@ -1,0 +1,71 @@
+<!-- source https://codepen.io/SeanNorton/pen/LWBXQL -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    /*CSS RESETS*/
+
+    body, html {
+      background: #2f3437; /*dark mode*/
+    }
+
+    /*CSS START*/
+
+    .full-table {
+      display: table;
+      height: 100%;
+      width: 100%;
+    }
+
+    .table-cell {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .card {
+      padding: 5px 50px 5px 50px;
+      background: #594141;
+      color: #efecec;
+      display: inline-block;
+    }
+
+    .date {
+      display: inline-block;
+      min-width: 162px;
+      font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+      font-size: 1.5em;
+    }
+  </style>  
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<body>
+
+  <script>
+    function date() {
+      var today = new Date();
+      const options = { weekday: 'short', month: 'short', day: 'numeric' };
+      document.getElementById('date').innerHTML = today.toLocaleDateString(undefined, options);
+    }
+
+    function dateTime() {
+      date();
+      setTimeout(dateTime, 500);
+    }
+
+    dateTime()
+  </script>
+  
+  <div class="full-table">
+    <div class="table-cell">
+      <div class="card">
+        <div class="date" id="date"></div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
